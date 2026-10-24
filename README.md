@@ -8,6 +8,15 @@ Hover over a file's card and click the eye next to the "..." menu. The media ite
 
 <img src="https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-preview-button.png" alt="Close-up of a media card with the Preview eye button highlighted" width="360">
 
+## Open or copy a file
+
+The "..." menu on each file also has:
+
+- **Open in new window:** opens the file itself in a new browser tab, at full size.
+- **Copy URL:** copies the file's full URL, ready to paste into an email or a link.
+
+<img src="https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/06-actions-menu.png" alt="A media card's menu showing Preview, Open in new window and Copy URL" width="385">
+
 ## Requirements
 
 Umbraco 17.3 or later, and Umbraco 18. Earlier 17.x versions have no buttons on media cards, so there is nowhere for the eye to appear.
@@ -25,7 +34,7 @@ No configuration needed. Rebuild and run your site, then open the Media section.
 - **Files** in the media library show the eye as their one-click button, in both the grid and list layouts. The Create (+) action moves into the "..." menu for files.
 - **Folders** keep Create (+) as their one-click button.
 - **The media tree** on the left is unchanged.
-- **Languages:** the button uses Umbraco's own "Preview" wording, so it appears in each editor's backoffice language (for example "Vorschau" in German).
+- **Languages:** Preview and Open in new window use Umbraco's own wording, so they appear in each editor's backoffice language (for example "Vorschau" in German). Copy URL is in English.
 
 The fly-out is Umbraco's own media editor, the same one that opens when you click a picked item in a Media Picker, so you can also make and save changes there. Umbraco's cards aren't replaced or modified.
 

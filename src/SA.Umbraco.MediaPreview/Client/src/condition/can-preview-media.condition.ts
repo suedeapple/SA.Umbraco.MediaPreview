@@ -8,7 +8,8 @@ import type { UmbControllerHost } from '@umbraco-cms/backoffice/controller-api';
 import type { UmbMediaCollectionItemModel } from '@umbraco-cms/backoffice/media';
 
 /**
- * Permitted for media items shown in a collection (the media library grid or list), except folders.
+ * Permitted for media items shown in a collection (the media library grid or list), except folders. Used by all of
+ * the package's actions (Preview, Open in new window and Copy URL).
  * Outside a collection, such as in the media tree, there's no grid for the fly-out to open over, so the
  * Preview action stays hidden and Umbraco's own first action (Create) is shown as before.
  *
