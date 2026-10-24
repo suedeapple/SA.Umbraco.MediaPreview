@@ -8,7 +8,7 @@
   },
   "Category": "Editor Tools",
   "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/saUmbracoMediaPreview.png",
-  "Description": "Adds a one-click Preview button to media cards in the Umbraco media library. It opens the media item's standard editor as a fly-out, so editors can view images and play video or audio without leaving the media section.",
+  "Description": "Adds a one-click Preview button to media cards in the Umbraco media library. It opens the media item's standard editor as a fly-out, so editors can view images and play video or audio without leaving the media section. Each file's menu also gains Copy URL.",
   "Screenshots": [
     {
       "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-preview-button.png",
@@ -29,6 +29,10 @@
     {
       "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/05-audio-preview.png",
       "Caption": "Audio plays with Umbraco's built-in player"
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/06-copy-url.png",
+      "Caption": "Copy a file's URL from the \"...\" menu"
     }
   ],
   "LicenseTypes": [

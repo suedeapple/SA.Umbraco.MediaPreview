@@ -10,7 +10,8 @@ import type { UmbMediaCollectionItemModel } from '@umbraco-cms/backoffice/media'
 const SA_FOLDER_MEDIA_TYPE_UNIQUE = 'f38bd2d7-65d0-48e6-95dc-87ce06ec2d3d';
 
 /**
- * Permitted for media items shown in a collection (the media library grid or list), except folders.
+ * Permitted for media items shown in a collection (the media library grid or list), except folders. Used by both
+ * of the package's actions (Preview and Copy URL).
  * Outside a collection, such as in the media tree, there's no grid for the fly-out to open over, so the
  * Preview action stays hidden and Umbraco's own first action (Create) is shown as before.
  *
