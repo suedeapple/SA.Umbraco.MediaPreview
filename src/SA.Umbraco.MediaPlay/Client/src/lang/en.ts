@@ -8,5 +8,9 @@ export default {
 		seek: 'Seek',
 		openFile: 'Open file',
 		cannotPlay: "This browser can't play this file",
+		format: 'Format',
+		dimensions: 'Dimensions',
+		resolution: 'Resolution',
+		duration: 'Duration',
 	},
 } satisfies UmbLocalizationDictionary;

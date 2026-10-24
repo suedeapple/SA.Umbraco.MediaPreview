@@ -8,11 +8,13 @@ export interface SaMediaPreviewModalData {
 	url: string;
 	kind: SaMediaKind;
 	mimeType: string;
+	/** Link to the media item's editor, when the card has one. */
+	editHref?: string;
 }
 
 export const SA_MEDIA_PREVIEW_MODAL = new UmbModalToken<SaMediaPreviewModalData, never>(SA_MEDIA_PREVIEW_MODAL_ALIAS, {
 	modal: {
-		type: 'custom',
-		element: () => import('./lightbox-modal.element.js'),
+		type: 'sidebar',
+		size: 'medium',
 	},
 });

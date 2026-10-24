@@ -116,7 +116,11 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 		const audio = this._audio;
 		if (!audio) return;
 		this._currentTime = audio.currentTime;
-		this._duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+		const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+		if (duration && duration !== this._duration) {
+			this.dispatchEvent(new CustomEvent('duration', { detail: duration, bubbles: false }));
+		}
+		this._duration = duration;
 	}
 
 	override render() {
@@ -187,15 +191,9 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 			display: grid;
 			grid-template-columns: auto 1fr;
 			grid-template-rows: auto auto;
-			column-gap: 24px;
-			row-gap: 10px;
+			column-gap: var(--uui-size-space-5);
+			row-gap: var(--uui-size-space-2);
 			align-items: center;
-			padding: 32px;
-			box-sizing: border-box;
-			border-radius: 12px;
-			background: #1d1d23;
-			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-			color: #fff;
 		}
 
 		audio {
@@ -207,13 +205,13 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 64px;
-			height: 64px;
+			width: 56px;
+			height: 56px;
 			padding: 0;
 			border: 0;
 			border-radius: 50%;
-			background: #fff;
-			color: #111;
+			background: var(--uui-color-interactive-emphasis, #3544b1);
+			color: var(--uui-color-surface, #fff);
 			cursor: pointer;
 			transition: transform 120ms;
 		}
@@ -229,14 +227,14 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 		}
 
 		#toggle svg {
-			width: 28px;
-			height: 28px;
+			width: 24px;
+			height: 24px;
 			fill: currentColor;
 		}
 
 		#waveform {
 			position: relative;
-			height: 120px;
+			height: 96px;
 			cursor: pointer;
 			touch-action: none;
 		}
@@ -246,7 +244,7 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 			inset: 0;
 			width: 100%;
 			height: 100%;
-			fill: rgba(255, 255, 255, 0.28);
+			fill: var(--uui-color-border-emphasis, #a1a1a1);
 		}
 
 		#waveform.loading svg {
@@ -268,7 +266,7 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 		}
 
 		#played svg {
-			fill: #fff;
+			fill: var(--uui-color-interactive-emphasis, #3544b1);
 		}
 
 		#playhead {
@@ -278,12 +276,11 @@ export class SaAudioWaveformPlayerElement extends UmbLitElement {
 			width: 2px;
 			margin-left: -1px;
 			background: var(--uui-color-interactive-emphasis, #3544b1);
-			box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
 			pointer-events: none;
 		}
 
 		#time {
-			font-size: 13px;
+			font-size: var(--uui-type-small-size, 12px);
 			font-variant-numeric: tabular-nums;
 		}
 

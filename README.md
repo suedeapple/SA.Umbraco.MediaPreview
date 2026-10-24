@@ -1,12 +1,14 @@
 # SA.Umbraco.MediaPlay
 
-Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens the file in a full screen lightbox:
+Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens a fly-out panel from the right so you can check the file without leaving the media section:
 
-- **Images** are shown enlarged to fit the screen (small images are scaled up to at most 2× so they stay sharp enough).
-- **Video** plays large with the browser's native controls.
+- **Images** are shown with their dimensions.
+- **Video** plays with the browser's native controls, with its resolution and duration.
 - **Audio** plays with a waveform: click or drag on it to seek, or use the arrow keys.
 
-Close with Escape, the close button, or a click on the dark background. "Open file" opens the original in a new tab.
+The panel also has **Edit** (opens the media item), **Open file** (the original in a new tab) and **Close**. Escape or a click outside the panel closes it too.
+
+No third party dependencies: the players are the browser's own `<video>` and `<audio>` elements, and the waveform is drawn from the audio file in the browser.
 
 Video cards also get a real thumbnail: a frame from the start of the video replaces Umbraco's generic video icon. Frames are only loaded once a card scrolls into view, and the icon stays if the browser can't decode the file.
 

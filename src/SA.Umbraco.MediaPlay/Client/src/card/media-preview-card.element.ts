@@ -125,7 +125,8 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 	async #openPreview(event: Event) {
 		event.stopPropagation();
 		if (!this._preview) return;
-		await umbOpenModal(this, SA_MEDIA_PREVIEW_MODAL, { data: this._preview }).catch(() => undefined);
+		const data = { ...this._preview, editHref: this.href };
+		await umbOpenModal(this, SA_MEDIA_PREVIEW_MODAL, { data }).catch(() => undefined);
 	}
 
 	override render() {
