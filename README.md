@@ -1,6 +1,6 @@
 # SA.Umbraco.MediaPlay
 
-Adds a **Preview** button to media cards in the Umbraco media library. It opens the file in a full screen lightbox:
+Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens the file in a full screen lightbox:
 
 - **Images** are shown enlarged to fit the screen (small images are scaled up to at most 2× so they stay sharp enough).
 - **Video** plays large with the browser's native controls.

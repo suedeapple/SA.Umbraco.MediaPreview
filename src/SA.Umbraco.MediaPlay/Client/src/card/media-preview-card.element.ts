@@ -127,18 +127,17 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 		if (!this._preview || this.selectOnly) return nothing;
 		const label = this.localize.term('saMediaPlay_preview');
 		const icon = this._preview.kind === 'image' ? 'icon-zoom-in' : 'icon-play';
+		// Sits in the card's hover-only actions area, next to Umbraco's own "..." and first-action buttons.
 		return html`
-			<uui-button
-				slot="tag"
-				id="preview"
-				look="secondary"
-				compact
-				label=${label}
-				title=${label}
-				data-mark="action:sa-media-preview"
-				@click=${this.#openPreview}>
-				<uui-icon name=${icon}></uui-icon>
-			</uui-button>
+			<uui-action-bar slot="actions" id="preview-bar">
+				<uui-button
+					label=${label}
+					title=${label}
+					data-mark="action:sa-media-preview"
+					@click=${this.#openPreview}>
+					<umb-icon name=${icon}></umb-icon>
+				</uui-button>
+			</uui-action-bar>
 		`;
 	}
 
@@ -153,12 +152,10 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 				--uui-button-background-color-hover: var(--uui-color-surface);
 			}
 
-			#preview {
+			#preview-bar {
 				--uui-button-background-color: var(--uui-color-surface);
-				--uui-button-background-color-hover: var(--uui-color-surface-emphasis);
-				--uui-button-border-radius: 50%;
-				font-size: 14px;
-				box-shadow: var(--uui-shadow-depth-1);
+				--uui-button-background-color-hover: var(--uui-color-surface);
+				margin-right: var(--uui-size-space-2);
 			}
 		`,
 	];
