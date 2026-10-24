@@ -1,10 +1,12 @@
 # SA.Umbraco.MediaPreview
 
-![Media library with the Preview eye button on a video card](https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-media-library.png)
+![Media library with the Preview eye button on a video card](https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/02-media-library.png)
 
 Adds a **Preview** action to media items in the Umbraco media library. When you hover over a file's card, it's the one-click eye button next to the "..." menu, and it opens the media item's standard editor as a fly-out from the right. You can view the image or play the video or audio with Umbraco's built-in players without leaving the media section, then close the fly-out to carry on where you were.
 
 It uses only what Umbraco already provides: the fly-out is the same media editor the Media Picker opens, and Umbraco's cards are not replaced or modified.
+
+<img src="https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-preview-button.png" alt="Close-up of a media card with the Preview eye button highlighted" width="360">
 
 Requires Umbraco 17.3 or later. Earlier 17.x versions have no actions on media cards, so there is nowhere for the button to appear. Tested on 17.3.0, 17.7.1 and 18.2.1.
 

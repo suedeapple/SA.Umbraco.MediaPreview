@@ -11,19 +11,23 @@
   "Description": "Adds a one-click Preview button to media cards in the Umbraco media library. It opens the media item's standard editor as a fly-out, so editors can view images and play video or audio without leaving the media section.",
   "Screenshots": [
     {
-      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-media-library.png",
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/01-preview-button.png",
       "Caption": "Hover over a media card and click the eye to preview it"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/02-video-preview.png",
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/02-media-library.png",
+      "Caption": "The eye sits next to the \"...\" menu on every file in the media library"
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/03-video-preview.png",
       "Caption": "Videos play in the fly-out without leaving the media library"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/03-image-preview.png",
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/04-image-preview.png",
       "Caption": "Images open in the same fly-out"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/04-audio-preview.png",
+      "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/docs/screenshots/05-audio-preview.png",
       "Caption": "Audio plays with Umbraco's built-in player"
     }
   ],
