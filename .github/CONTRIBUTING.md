@@ -25,9 +25,7 @@ To skip the client build (for example when `wwwroot` is already built), pass `-p
 
 Preview is a standard Umbraco entity action for media (`entity-action/preview-media.entity-action.ts`). Media cards show their highest weighted action as a one-click button beside the "..." menu; Preview has a higher weight than Create, so on files it takes that spot.
 
-Open in new window (`open-media-file.entity-action.ts`) and Copy URL (`copy-media-url.entity-action.ts`) sit just below it in the "..." menu. Both look up the file's URL when clicked, using Umbraco's media URL repository.
-
-A condition (`condition/can-preview-media.condition.ts`) limits all three actions to items shown in the media library's grid or list and excludes folders. Preview links to the fly-out route Umbraco's media collection already registers for its items.
+A condition (`condition/can-preview-media.condition.ts`) limits Preview to items shown in the media library's grid or list and excludes folders. The action links to the fly-out route Umbraco's media collection already registers for its items.
 
 ## Supported Umbraco versions
 

@@ -1,5 +1,6 @@
-import { SA_MEDIA_PREVIEW_CONDITION_ALIAS } from './constants.js';
 import { UMB_MEDIA_ENTITY_TYPE } from '@umbraco-cms/backoffice/media';
+
+const SA_MEDIA_PREVIEW_CONDITION_ALIAS = 'SA.MediaPreview.Condition.CanPreviewMedia';
 
 export const manifests: Array<UmbExtensionManifest> = [
 	{
@@ -24,48 +25,5 @@ export const manifests: Array<UmbExtensionManifest> = [
 			label: '#general_preview',
 		},
 		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
-	},
-	{
-		type: 'entityAction',
-		kind: 'default',
-		alias: 'SA.MediaPreview.EntityAction.Media.OpenFile',
-		name: 'SA Media Preview Open Media File Entity Action',
-		// Just below Preview, so it sits at the top of the "..." menu.
-		weight: 1290,
-		api: () => import('./entity-action/open-media-file.entity-action.js'),
-		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
-		meta: {
-			icon: 'icon-window-popout',
-			label: '#relatedlinks_newWindow',
-		},
-		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
-	},
-	{
-		type: 'entityAction',
-		kind: 'default',
-		alias: 'SA.MediaPreview.EntityAction.Media.CopyUrl',
-		name: 'SA Media Preview Copy Media URL Entity Action',
-		weight: 1280,
-		api: () => import('./entity-action/copy-media-url.entity-action.js'),
-		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
-		meta: {
-			icon: 'icon-link',
-			label: '#saMediaPreview_copyUrl',
-		},
-		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
-	},
-	{
-		// Umbraco has no "Copy URL" term of its own. Other backoffice languages fall back to this English one.
-		type: 'localization',
-		alias: 'SA.MediaPreview.Localization.En',
-		name: 'SA Media Preview English Localization',
-		meta: {
-			culture: 'en',
-			localizations: {
-				saMediaPreview: {
-					copyUrl: 'Copy URL',
-				},
-			},
-		},
 	},
 ];

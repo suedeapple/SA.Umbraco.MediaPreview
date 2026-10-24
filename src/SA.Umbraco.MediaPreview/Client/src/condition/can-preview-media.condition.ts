@@ -1,4 +1,3 @@
-import { SA_FOLDER_MEDIA_TYPE_UNIQUE } from '../constants.js';
 import { UmbConditionBase } from '@umbraco-cms/backoffice/extension-registry';
 import { UMB_COLLECTION_CONTEXT } from '@umbraco-cms/backoffice/collection';
 import { UMB_ENTITY_CONTEXT } from '@umbraco-cms/backoffice/entity';
@@ -7,9 +6,11 @@ import type { UmbConditionConfigBase, UmbConditionControllerArguments, UmbExtens
 import type { UmbControllerHost } from '@umbraco-cms/backoffice/controller-api';
 import type { UmbMediaCollectionItemModel } from '@umbraco-cms/backoffice/media';
 
+/** Key of Umbraco's built-in Folder media type. It's the same on every installation. */
+const SA_FOLDER_MEDIA_TYPE_UNIQUE = 'f38bd2d7-65d0-48e6-95dc-87ce06ec2d3d';
+
 /**
- * Permitted for media items shown in a collection (the media library grid or list), except folders. Used by all of
- * the package's actions (Preview, Open in new window and Copy URL).
+ * Permitted for media items shown in a collection (the media library grid or list), except folders.
  * Outside a collection, such as in the media tree, there's no grid for the fly-out to open over, so the
  * Preview action stays hidden and Umbraco's own first action (Create) is shown as before.
  *

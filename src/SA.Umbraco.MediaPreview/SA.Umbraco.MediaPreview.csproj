@@ -14,7 +14,7 @@
     <PackageId>SA.Umbraco.MediaPreview</PackageId>
     <Version>1.0.0</Version>
     <Title>SA.Umbraco.MediaPreview</Title>
-    <Description>Adds a Preview action to Umbraco media cards that opens the media item in a fly-out, so you can view images and play video or audio without leaving the media section, plus Open in new window and Copy URL actions for files.</Description>
+    <Description>Adds a Preview action to Umbraco media cards that opens the media item in a fly-out, so you can view images and play video or audio without leaving the media section.</Description>
     <Authors>suedeapple</Authors>
     <Company>suedeapple</Company>
     <PackageTags>umbraco;umbraco-marketplace;umbraco-cms;media;preview;video;audio</PackageTags>
