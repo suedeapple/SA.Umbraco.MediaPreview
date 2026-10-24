@@ -24,6 +24,13 @@ A condition limits Preview to items shown in the media library's grid or list (i
 - **Folders** keep Create (+) as their one-click button.
 - **The media tree** is unchanged.
 
+### Future Umbraco versions
+
+The package is built to fail safe rather than break:
+
+- It finds which item a card is for in the same way Umbraco's own card actions do, so it keeps working as long as Umbraco's "..." menu does.
+- If the media library's fly-out route ever isn't available, the eye opens the item's normal edit page instead of doing nothing.
+
 ## Development
 
 The backoffice extension lives in `src/SA.Umbraco.MediaPreview/Client` (TypeScript, Lit, Vite). It builds into `src/SA.Umbraco.MediaPreview/wwwroot`, which the Razor Class Library serves from `/App_Plugins/SA.Umbraco.MediaPreview/`.
