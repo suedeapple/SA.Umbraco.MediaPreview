@@ -50,6 +50,17 @@ To try it in a local Umbraco site, add a project reference to `src/SA.Umbraco.Me
 
 To skip the client build (for example when a CI step has already built `wwwroot`), pass `-p:SkipClientBuild=true`.
 
-### Versioning
+### Releasing
 
-Keep the version in `SA.Umbraco.MediaPreview.csproj` and `Client/public/umbraco-package.json` in step.
+Push a version tag to release to NuGet:
+
+```bash
+git tag 1.0.0
+git push origin 1.0.0
+```
+
+The `Release to NuGet` workflow (`.github/workflows/release.yml`) packs the project with the tag as the version and pushes it to nuget.org using NuGet trusted publishing, so no API key is stored in the repository. Running the workflow by hand packs the version set in the `.csproj`.
+
+The version only needs setting in one place: the build writes it into `umbraco-package.json`, so Umbraco and NuGet always agree.
+
+`umbraco-marketplace.json` holds the listing details for the [Umbraco Marketplace](https://marketplace.umbraco.com), which picks up packages tagged `umbraco-marketplace` on NuGet.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Paul Wright",
+    "ImageUrl": "https://github.com/suedeapple.png",
+    "Url": "https://www.suedeapple.co.uk",
+    "Description": "Paul Wright is an Umbraco Web Developer"
+  },
+  "Category": "Editor Tools",
+  "Description": "Adds a one-click Preview button to media cards in the Umbraco media library. It opens the media item's standard editor as a fly-out, so editors can view images and play video or audio without leaving the media section.",
+  "LicenseTypes": [ "Free" ],
+  "IssueTrackerUrl": "https://github.com/suedeapple/SA.Umbraco.MediaPreview/issues",
+  "PackageType": "Package",
+  "Tags": [ "media", "preview", "video", "audio", "backoffice", "editor experience" ],
+  "Title": "SA.Umbraco.MediaPreview",
+  "LookingForContributors": true
+}
