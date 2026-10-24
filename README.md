@@ -12,8 +12,6 @@ No third party dependencies: the players are the browser's own `<video>` and `<a
 
 Video cards also get a real thumbnail: a frame from the start of the video replaces Umbraco's generic video icon. Frames are only loaded once a card scrolls into view, and the icon stays if the browser can't decode the file.
 
-No third party dependencies: the players are the browser's own `<video>` and `<audio>` elements, and the waveform is drawn from the audio file in the browser.
-
 Requires Umbraco 17.5 or later.
 
 ## Install
