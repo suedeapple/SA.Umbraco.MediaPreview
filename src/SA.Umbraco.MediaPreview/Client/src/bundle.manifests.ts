@@ -26,33 +26,4 @@ export const manifests: Array<UmbExtensionManifest> = [
 		},
 		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
 	},
-	{
-		type: 'entityAction',
-		kind: 'default',
-		alias: 'SA.MediaPreview.EntityAction.Media.CopyUrl',
-		name: 'SA Media Preview Copy Media URL Entity Action',
-		// Just below Preview, so it sits at the top of the "..." menu.
-		weight: 1290,
-		api: () => import('./entity-action/copy-media-url.entity-action.js'),
-		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
-		meta: {
-			icon: 'icon-link',
-			label: '#saMediaPreview_copyUrl',
-		},
-		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
-	},
-	{
-		// Umbraco has no "Copy URL" term of its own. Other backoffice languages fall back to this English one.
-		type: 'localization',
-		alias: 'SA.MediaPreview.Localization.En',
-		name: 'SA Media Preview English Localization',
-		meta: {
-			culture: 'en',
-			localizations: {
-				saMediaPreview: {
-					copyUrl: 'Copy URL',
-				},
-			},
-		},
-	},
 ];
