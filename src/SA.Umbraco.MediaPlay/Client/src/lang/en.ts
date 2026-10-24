@@ -3,14 +3,5 @@ import type { UmbLocalizationDictionary } from '@umbraco-cms/backoffice/localiza
 export default {
 	saMediaPlay: {
 		preview: 'Preview',
-		play: 'Play',
-		pause: 'Pause',
-		seek: 'Seek',
-		openFile: 'Open file',
-		cannotPlay: "This browser can't play this file",
-		format: 'Format',
-		dimensions: 'Dimensions',
-		resolution: 'Resolution',
-		duration: 'Duration',
 	},
 } satisfies UmbLocalizationDictionary;

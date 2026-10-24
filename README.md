@@ -1,16 +1,8 @@
 # SA.Umbraco.MediaPlay
 
-Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens a fly-out panel from the right so you can check the file without leaving the media section:
+Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens the media item's standard editor as a fly-out from the right. You can view the image or play the video or audio with Umbraco's built-in players without leaving the media section, then close the fly-out to carry on where you were.
 
-- **Images** are shown with their dimensions.
-- **Video** plays with the browser's native controls, with its resolution and duration.
-- **Audio** plays with a waveform: click or drag on it to seek, or use the arrow keys.
-
-The panel also has **Edit** (opens the media item), **Open file** (the original in a new tab) and **Close**. Escape or a click outside the panel closes it too.
-
-No third party dependencies: the players are the browser's own `<video>` and `<audio>` elements, and the waveform is drawn from the audio file in the browser.
-
-Video cards also get a real thumbnail: a frame from the start of the video replaces Umbraco's generic video icon. Frames are only loaded once a card scrolls into view, and the icon stays if the browser can't decode the file.
+It uses only what Umbraco already provides: the fly-out is the same media editor the Media Picker opens, and the cards are otherwise unchanged. Folders don't get the button.
 
 Requires Umbraco 17.5 or later.
 
@@ -22,19 +14,9 @@ dotnet add package SA.Umbraco.MediaPlay
 
 No configuration needed.
 
-## Supported formats
-
-| Type  | Extensions |
-| ----- | ---------- |
-| Image | jpg, jpeg, png, gif, webp, avif, svg, bmp, ico |
-| Video | mp4, m4v, mov, webm, ogv, mkv, mpeg, mpg, 3gp, 3g2 |
-| Audio | mp3, m4a, aac, wav, ogg, oga, opus, weba, flac, aif, aiff |
-
-The button only appears for video and audio the editor's browser says it can play, so files such as WMV, AVI or WMA don't get a button that would only fail. Waveforms are drawn for audio files up to 20 MB; larger files play normally with a flat placeholder instead of a waveform.
-
 ## Where the button appears
 
-The button is added to the media library's grid view, using Umbraco's `entityCollectionItemCard` extension point (added in Umbraco 17.3). This package registers a media card with a higher weight than the core one, renders the same card, and adds the button.
+The button is added to the media library's grid view, using Umbraco's `entityCollectionItemCard` extension point (added in Umbraco 17.3). This package registers a media card with a higher weight than the core one, renders the same card, and adds the button. The fly-out is a modal route for Umbraco's `UMB_WORKSPACE_MODAL`, registered the same way the Media Picker does it.
 
 Umbraco doesn't offer an extension point for the cards in the media picker dialog or the media picker property editor, so those are unchanged.
 

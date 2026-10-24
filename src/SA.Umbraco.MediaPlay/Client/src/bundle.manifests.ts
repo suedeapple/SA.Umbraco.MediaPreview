@@ -1,4 +1,3 @@
-import { SA_MEDIA_PREVIEW_MODAL_ALIAS } from './modal/media-preview-modal.token.js';
 import { UMB_MEDIA_ENTITY_TYPE } from '@umbraco-cms/backoffice/media';
 
 export const manifests: Array<UmbExtensionManifest> = [
@@ -11,12 +10,6 @@ export const manifests: Array<UmbExtensionManifest> = [
 		// Upload placeholders aren't listed, so they keep using the core card.
 		weight: 100,
 		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
-	},
-	{
-		type: 'modal',
-		alias: SA_MEDIA_PREVIEW_MODAL_ALIAS,
-		name: 'SA Media Play Preview Modal',
-		element: () => import('./modal/media-preview-modal.element.js'),
 	},
 	{
 		type: 'localization',

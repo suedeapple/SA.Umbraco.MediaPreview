@@ -14,7 +14,7 @@
     <PackageId>SA.Umbraco.MediaPlay</PackageId>
     <Version>1.0.0</Version>
     <Title>SA.Umbraco.MediaPlay</Title>
-    <Description>Adds a Preview tab to Umbraco media items so editors can play video and audio files in the backoffice.</Description>
+    <Description>Adds a Preview button to Umbraco media cards that opens the media item in a fly-out, so you can view images and play video or audio without leaving the media section.</Description>
     <Authors>Suede Apple</Authors>
     <PackageTags>umbraco umbraco-marketplace umbraco-cms media video audio player preview</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
