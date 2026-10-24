@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path=".github/CONTRIBUTING.md" />
     <File Path=".github/workflows/release.yml" />
     <File Path="LICENSE" />
     <File Path="README.md" />
