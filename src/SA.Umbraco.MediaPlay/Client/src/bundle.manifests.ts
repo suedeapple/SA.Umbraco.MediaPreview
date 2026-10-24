@@ -1,30 +1,22 @@
-import { SA_MEDIA_PLAY_IS_PLAYABLE_CONDITION_ALIAS, SA_MEDIA_PLAY_WORKSPACE_VIEW_ALIAS } from './constants.js';
-import { UMB_WORKSPACE_CONDITION_ALIAS } from '@umbraco-cms/backoffice/workspace';
-import { UMB_MEDIA_WORKSPACE_ALIAS } from '@umbraco-cms/backoffice/media';
+import { SA_MEDIA_PREVIEW_MODAL_ALIAS } from './modal/media-preview-modal.token.js';
+import { UMB_MEDIA_ENTITY_TYPE } from '@umbraco-cms/backoffice/media';
 
 export const manifests: Array<UmbExtensionManifest> = [
 	{
-		type: 'condition',
-		alias: SA_MEDIA_PLAY_IS_PLAYABLE_CONDITION_ALIAS,
-		name: 'SA Media Play Is Playable Media Condition',
-		api: () => import('./condition/is-playable-media.condition.js'),
+		type: 'entityCollectionItemCard',
+		alias: 'SA.MediaPlay.EntityCollectionItemCard.Media',
+		name: 'SA Media Play Media Card',
+		element: () => import('./card/media-preview-card.element.js'),
+		// Umbraco renders the highest weighted card for an entity type, so this takes over from the core media card.
+		// Upload placeholders aren't listed, so they keep using the core card.
+		weight: 100,
+		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
 	},
 	{
-		type: 'workspaceView',
-		alias: SA_MEDIA_PLAY_WORKSPACE_VIEW_ALIAS,
-		name: 'SA Media Play Preview Workspace View',
-		element: () => import('./workspace-view/media-play-workspace-view.element.js'),
-		// Core "Details" is 200 and "Info" is 100, so the preview sits between them.
-		weight: 150,
-		meta: {
-			label: '#saMediaPlay_tabLabel',
-			pathname: 'preview',
-			icon: 'icon-play',
-		},
-		conditions: [
-			{ alias: UMB_WORKSPACE_CONDITION_ALIAS, match: UMB_MEDIA_WORKSPACE_ALIAS },
-			{ alias: SA_MEDIA_PLAY_IS_PLAYABLE_CONDITION_ALIAS },
-		],
+		type: 'modal',
+		alias: SA_MEDIA_PREVIEW_MODAL_ALIAS,
+		name: 'SA Media Play Preview Modal',
+		element: () => import('./modal/media-preview-modal.element.js'),
 	},
 	{
 		type: 'localization',

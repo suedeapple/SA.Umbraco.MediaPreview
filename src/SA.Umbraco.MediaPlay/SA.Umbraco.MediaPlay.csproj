@@ -23,8 +23,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Version floor only: the extension uses public backoffice APIs present in 17.0 and later. -->
-    <PackageReference Include="Umbraco.Cms.Core" Version="17.0.0" />
+    <!-- Version floor only: the media card extension point (entityCollectionItemCard) used here needs 17.5 or later. -->
+    <PackageReference Include="Umbraco.Cms.Core" Version="17.5.0" />
   </ItemGroup>
 
   <ItemGroup>

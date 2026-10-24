@@ -1,14 +1,16 @@
 # SA.Umbraco.MediaPlay
 
-Adds a **Preview** tab to Umbraco media items that hold a video or audio file, so editors can play the file in the backoffice.
+Adds a **Preview** button to media cards in the Umbraco media library. It opens the file in a full screen lightbox:
 
-- Native browser `<video>` and `<audio>` players, no third party dependencies.
-- Shows format, duration, resolution (video) and file size.
-- The tab appears once the media item is saved. (Umbraco discards its in-browser copy of an unsaved upload when you leave the Details tab, so there is nothing to play until then.)
-- Explains why a file won't play (unsupported format or codec, missing file, damaged file) instead of showing a blank player.
-- Works on any media type whose file property uses the `umbracoFile` alias, including the built-in Video, Audio and File types and your own types.
+- **Images** are shown enlarged to fit the screen (small images are scaled up to at most 2× so they stay sharp enough).
+- **Video** plays large with the browser's native controls.
+- **Audio** plays with a waveform: click or drag on it to seek, or use the arrow keys.
 
-Supports Umbraco 17 and later.
+Close with Escape, the close button, or a click on the dark background. "Open file" opens the original in a new tab.
+
+No third party dependencies: the players are the browser's own `<video>` and `<audio>` elements, and the waveform is drawn from the audio file in the browser.
+
+Requires Umbraco 17.5 or later.
 
 ## Install
 
@@ -16,22 +18,23 @@ Supports Umbraco 17 and later.
 dotnet add package SA.Umbraco.MediaPlay
 ```
 
-No configuration needed. Rebuild, run the site and open a media item that has a video or audio file.
+No configuration needed.
 
 ## Supported formats
 
-The tab appears for these extensions. Whether a file actually plays depends on the editor's browser and the codec inside the file.
-
 | Type  | Extensions |
 | ----- | ---------- |
-| Video | mp4, m4v, mov, webm, ogv, mkv, mpeg, mpg, 3gp, 3g2, avi, wmv, flv |
-| Audio | mp3, m4a, aac, wav, ogg, oga, opus, weba, flac, aif, aiff, wma |
+| Image | jpg, jpeg, png, gif, webp, avif, svg, bmp, ico |
+| Video | mp4, m4v, mov, webm, ogv, mkv, mpeg, mpg, 3gp, 3g2 |
+| Audio | mp3, m4a, aac, wav, ogg, oga, opus, weba, flac, aif, aiff |
 
-MP4 (H.264 + AAC), WebM, MP3, M4A and WAV play in every modern browser. AVI, WMV, FLV and WMA generally don't. HEVC `.mov` files play in Safari and in some other browsers depending on the operating system. The preview tells the editor when a file can't play.
+The button only appears for video and audio the editor's browser says it can play, so files such as WMV, AVI or WMA don't get a button that would only fail. Waveforms are drawn for audio files up to 20 MB; larger files play normally with a flat placeholder instead of a waveform.
 
-## Relationship to Umbraco's built-in preview
+## Where the button appears
 
-Since Umbraco 14 the upload field on the media item's main tab shows a small native player for many audio and video types. This package adds a dedicated tab with a larger player, file details and clear error messages, and it also recognises `.m4a` and `.flac`, which the built-in preview shows as a generic file.
+The button is added to the media library's grid view, using Umbraco's `entityCollectionItemCard` extension point (added in Umbraco 17.3). This package registers a media card with a higher weight than the core one, renders the same card, and adds the button.
+
+Umbraco doesn't offer an extension point for the cards in the media picker dialog or the media picker property editor, so those are unchanged.
 
 ## Development
 
@@ -48,7 +51,7 @@ cd src/SA.Umbraco.MediaPlay/Client
 npm run watch
 ```
 
-To try it in a local Umbraco 17 site, add a project reference to `src/SA.Umbraco.MediaPlay/SA.Umbraco.MediaPlay.csproj`, or add `./artifacts` as a local NuGet source and install the package.
+To try it in a local Umbraco site, add a project reference to `src/SA.Umbraco.MediaPlay/SA.Umbraco.MediaPlay.csproj`, or add `./artifacts` as a local NuGet source and install the package.
 
 To skip the client build (for example when a CI step has already built `wwwroot`), pass `-p:SkipClientBuild=true`.
 

@@ -1,0 +1,18 @@
+import type { SaMediaKind } from '../media-kind.js';
+import { UmbModalToken } from '@umbraco-cms/backoffice/modal';
+
+export const SA_MEDIA_PREVIEW_MODAL_ALIAS = 'SA.MediaPlay.Modal.Preview';
+
+export interface SaMediaPreviewModalData {
+	name: string;
+	url: string;
+	kind: SaMediaKind;
+	mimeType: string;
+}
+
+export const SA_MEDIA_PREVIEW_MODAL = new UmbModalToken<SaMediaPreviewModalData, never>(SA_MEDIA_PREVIEW_MODAL_ALIAS, {
+	modal: {
+		type: 'custom',
+		element: () => import('./lightbox-modal.element.js'),
+	},
+});
