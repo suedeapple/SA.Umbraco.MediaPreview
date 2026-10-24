@@ -3,6 +3,7 @@
     <File Path=".github/workflows/release.yml" />
     <File Path="LICENSE" />
     <File Path="README.md" />
+    <File Path="saUmbracoMediaPreview.png" />
     <File Path="umbraco-marketplace.json" />
   </Folder>
   <Project Path="src/SA.Umbraco.MediaPreview/SA.Umbraco.MediaPreview.csproj" />

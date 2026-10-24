@@ -7,6 +7,7 @@
     "Description": "Paul Wright is an Umbraco Web Developer"
   },
   "Category": "Editor Tools",
+  "ImageUrl": "https://raw.githubusercontent.com/suedeapple/SA.Umbraco.MediaPreview/main/saUmbracoMediaPreview.png",
   "Description": "Adds a one-click Preview button to media cards in the Umbraco media library. It opens the media item's standard editor as a fly-out, so editors can view images and play video or audio without leaving the media section.",
   "LicenseTypes": [ "Free" ],
   "IssueTrackerUrl": "https://github.com/suedeapple/SA.Umbraco.MediaPreview/issues",

@@ -23,6 +23,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>saUmbracoMediaPreview.png</PackageIcon>
 
     <!-- Pack settings -->
     <IncludeSymbols>true</IncludeSymbols>
@@ -37,6 +38,7 @@
   <ItemGroup>
     <None Include="../../README.md" Pack="true" PackagePath="/" Visible="false" />
     <None Include="../../LICENSE" Pack="true" PackagePath="" Visible="false" />
+    <None Include="../../saUmbracoMediaPreview.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
 
   <!--
