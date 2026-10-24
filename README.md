@@ -4,7 +4,7 @@ Adds a **Preview** action to media items in the Umbraco media library. When you 
 
 It uses only what Umbraco already provides: the fly-out is the same media editor the Media Picker opens, and Umbraco's cards are not replaced or modified.
 
-Requires Umbraco 17.3 or later. Earlier 17.x versions have no actions on media cards, so there is nowhere for the button to appear. Tested on 17.3.0 and 17.7.1.
+Requires Umbraco 17.3 or later. Earlier 17.x versions have no actions on media cards, so there is nowhere for the button to appear. Tested on 17.3.0, 17.7.1 and 18.2.1.
 
 ## Install
 
