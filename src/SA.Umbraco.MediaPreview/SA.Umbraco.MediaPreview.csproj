@@ -5,15 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AddRazorSupportForMvc>false</AddRazorSupportForMvc>
-    <!-- Everything in wwwroot is served from /App_Plugins/SA.Umbraco.MediaPlay/ -->
-    <StaticWebAssetBasePath>App_Plugins/SA.Umbraco.MediaPlay</StaticWebAssetBasePath>
+    <!-- Everything in wwwroot is served from /App_Plugins/SA.Umbraco.MediaPreview/ -->
+    <StaticWebAssetBasePath>App_Plugins/SA.Umbraco.MediaPreview</StaticWebAssetBasePath>
     <DefaultItemExcludes>$(DefaultItemExcludes);Client/**</DefaultItemExcludes>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>SA.Umbraco.MediaPlay</PackageId>
+    <PackageId>SA.Umbraco.MediaPreview</PackageId>
     <Version>1.0.0</Version>
-    <Title>SA.Umbraco.MediaPlay</Title>
+    <Title>SA.Umbraco.MediaPreview</Title>
     <Description>Adds a Preview action to Umbraco media cards that opens the media item in a fly-out, so you can view images and play video or audio without leaving the media section.</Description>
     <Authors>Suede Apple</Authors>
     <PackageTags>umbraco umbraco-marketplace umbraco-cms media video audio player preview</PackageTags>
@@ -35,11 +35,11 @@
     Builds the backoffice client into wwwroot. Needs Node.js 20.19+ or 22.12+.
     Pass -p:SkipClientBuild=true to use an existing wwwroot (e.g. built in an earlier CI step).
   -->
-  <Target Name="SAMediaPlayRestoreClient" Condition="'$(SkipClientBuild)' != 'true'" Inputs="Client/package.json;Client/package-lock.json" Outputs="Client/node_modules/.package-lock.json">
+  <Target Name="SAMediaPreviewRestoreClient" Condition="'$(SkipClientBuild)' != 'true'" Inputs="Client/package.json;Client/package-lock.json" Outputs="Client/node_modules/.package-lock.json">
     <Exec Command="npm ci --no-audit --no-fund" WorkingDirectory="Client" />
   </Target>
 
-  <Target Name="SAMediaPlayBuildClient" BeforeTargets="BeforeBuild" DependsOnTargets="SAMediaPlayRestoreClient" Condition="'$(SkipClientBuild)' != 'true'">
+  <Target Name="SAMediaPreviewBuildClient" BeforeTargets="BeforeBuild" DependsOnTargets="SAMediaPreviewRestoreClient" Condition="'$(SkipClientBuild)' != 'true'">
     <Exec Command="npm run build" WorkingDirectory="Client" />
     <!-- wwwroot didn't exist when items were evaluated on a clean build, so add the fresh output now. -->
     <ItemGroup>

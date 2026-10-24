@@ -1,7 +1,7 @@
 import type { UmbLocalizationDictionary } from '@umbraco-cms/backoffice/localization-api';
 
 export default {
-	saMediaPlay: {
+	saMediaPreview: {
 		preview: 'Preview',
 	},
 } satisfies UmbLocalizationDictionary;

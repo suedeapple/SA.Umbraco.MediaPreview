@@ -7,4 +7,4 @@ node_modules/
 *.nupkg
 
 # Built by the Client project (npm run build / dotnet build)
-src/SA.Umbraco.MediaPlay/wwwroot/
+src/SA.Umbraco.MediaPreview/wwwroot/

@@ -5,9 +5,9 @@ export default defineConfig({
 		lib: {
 			entry: 'src/bundle.manifests.ts',
 			formats: ['es'],
-			fileName: 'sa-media-play',
+			fileName: 'sa-media-preview',
 		},
-		// Served from /App_Plugins/SA.Umbraco.MediaPlay/ via the Razor Class Library's StaticWebAssetBasePath.
+		// Served from /App_Plugins/SA.Umbraco.MediaPreview/ via the Razor Class Library's StaticWebAssetBasePath.
 		outDir: '../wwwroot',
 		emptyOutDir: true,
 		sourcemap: true,

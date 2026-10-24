@@ -1,4 +1,4 @@
-# SA.Umbraco.MediaPlay
+# SA.Umbraco.MediaPreview
 
 Adds a **Preview** action to media items in the Umbraco media library. When you hover over a file's card, it's the one-click eye button next to the "..." menu, and it opens the media item's standard editor as a fly-out from the right. You can view the image or play the video or audio with Umbraco's built-in players without leaving the media section, then close the fly-out to carry on where you were.
 
@@ -9,7 +9,7 @@ Requires Umbraco 17.5 or later.
 ## Install
 
 ```bash
-dotnet add package SA.Umbraco.MediaPlay
+dotnet add package SA.Umbraco.MediaPreview
 ```
 
 No configuration needed.
@@ -26,23 +26,23 @@ A condition limits Preview to items shown in the media library's grid or list (i
 
 ## Development
 
-The backoffice extension lives in `src/SA.Umbraco.MediaPlay/Client` (TypeScript, Lit, Vite). It builds into `src/SA.Umbraco.MediaPlay/wwwroot`, which the Razor Class Library serves from `/App_Plugins/SA.Umbraco.MediaPlay/`.
+The backoffice extension lives in `src/SA.Umbraco.MediaPreview/Client` (TypeScript, Lit, Vite). It builds into `src/SA.Umbraco.MediaPreview/wwwroot`, which the Razor Class Library serves from `/App_Plugins/SA.Umbraco.MediaPreview/`.
 
 Building the project runs `npm ci` and `npm run build` automatically, so you need Node.js 20.19+ or 22.12+ installed.
 
 ```bash
 # Build the NuGet package
-dotnet pack src/SA.Umbraco.MediaPlay -c Release -o ./artifacts
+dotnet pack src/SA.Umbraco.MediaPreview -c Release -o ./artifacts
 
 # Work on the client with rebuild on save
-cd src/SA.Umbraco.MediaPlay/Client
+cd src/SA.Umbraco.MediaPreview/Client
 npm run watch
 ```
 
-To try it in a local Umbraco site, add a project reference to `src/SA.Umbraco.MediaPlay/SA.Umbraco.MediaPlay.csproj`, or add `./artifacts` as a local NuGet source and install the package.
+To try it in a local Umbraco site, add a project reference to `src/SA.Umbraco.MediaPreview/SA.Umbraco.MediaPreview.csproj`, or add `./artifacts` as a local NuGet source and install the package.
 
 To skip the client build (for example when a CI step has already built `wwwroot`), pass `-p:SkipClientBuild=true`.
 
 ### Versioning
 
-Keep the version in `SA.Umbraco.MediaPlay.csproj` and `Client/public/umbraco-package.json` in step.
+Keep the version in `SA.Umbraco.MediaPreview.csproj` and `Client/public/umbraco-package.json` in step.
