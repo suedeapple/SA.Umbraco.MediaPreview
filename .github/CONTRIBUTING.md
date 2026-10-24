@@ -27,10 +27,9 @@ Preview is a standard Umbraco entity action for media (`entity-action/preview-me
 
 A condition (`condition/can-preview-media.condition.ts`) limits Preview to items shown in the media library's grid or list and excludes folders. The action links to the fly-out route Umbraco's media collection already registers for its items.
 
-The package is built to fail safe on future Umbraco versions:
+## Supported Umbraco versions
 
-- The condition finds which item a card is for through `UMB_ENTITY_CONTEXT`, the same way Umbraco's own card actions do, rather than relying on the actions bundle's fallback context, which Umbraco plans to remove in v19.
-- If the collection's fly-out route isn't available, the action links to the item's normal edit page instead of doing nothing.
+The package supports Umbraco 17.3 up to 18 (`[17.3.0, 19.0.0)` in the `.csproj`), so NuGet won't install it on a newer major. When a new major is released, test against it and raise the upper bound.
 
 ## Releasing
 

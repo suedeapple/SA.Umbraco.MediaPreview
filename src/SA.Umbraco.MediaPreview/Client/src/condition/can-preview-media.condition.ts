@@ -12,11 +12,6 @@ import type { UmbMediaCollectionItemModel } from '@umbraco-cms/backoffice/media'
  * Outside a collection, such as in the media tree, there's no grid for the fly-out to open over, so the
  * Preview action stays hidden and Umbraco's own first action (Create) is shown as before.
  *
- * The item's key comes from UMB_ENTITY_CONTEXT, looked up from the same element and in the same way as Umbraco's
- * own actions area finds which item it belongs to. Umbraco 17 and 18 hand that area a fallback copy of the key,
- * due to be removed in Umbraco 19; whatever replaces it has to reach the actions area for Umbraco's own "..." menu
- * to keep working, so this lookup gets the same answer without depending on the fallback itself.
- *
  * The media type is read from the collection's items rather than from the card, because the card's actions
  * area sits outside the part of the card that provides the media type context.
  */
