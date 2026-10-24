@@ -1,0 +1,10 @@
+bin/
+obj/
+node_modules/
+*.user
+.vs/
+.idea/
+*.nupkg
+
+# Built by the Client project (npm run build / dotnet build)
+src/SA.Umbraco.MediaPlay/wwwroot/

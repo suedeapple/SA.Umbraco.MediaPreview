@@ -1,0 +1,16 @@
+{
+  "name": "sa-umbraco-mediaplay",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "watch": "vite build --watch",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@umbraco-cms/backoffice": "17.0.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.7"
+  }
+}
