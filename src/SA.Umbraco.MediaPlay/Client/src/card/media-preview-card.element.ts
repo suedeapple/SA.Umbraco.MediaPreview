@@ -53,6 +53,17 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 	@state()
 	private _preview?: SaMediaPreviewModalData;
 
+	@state()
+	private _inView = false;
+
+	@state()
+	private _videoFrameReady = false;
+
+	@state()
+	private _videoFrameFailed = false;
+
+	#intersectionObserver?: IntersectionObserver;
+
 	constructor() {
 		super();
 		// Pick up a replaced file without a page reload.
@@ -66,9 +77,28 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 		});
 	}
 
+	override connectedCallback() {
+		super.connectedCallback();
+		// Video frames are only fetched once the card is on screen, so a large folder doesn't hit every file at once.
+		this.#intersectionObserver = new IntersectionObserver((entries) => {
+			if (entries.some((entry) => entry.isIntersecting)) {
+				this._inView = true;
+				this.#intersectionObserver?.disconnect();
+			}
+		});
+		this.#intersectionObserver.observe(this);
+	}
+
+	override disconnectedCallback() {
+		super.disconnectedCallback();
+		this.#intersectionObserver?.disconnect();
+	}
+
 	async #loadPreview() {
 		const item = this.#item;
 		this._preview = undefined;
+		this._videoFrameReady = false;
+		this._videoFrameFailed = false;
 		if (!item?.unique) return;
 
 		const media = await lookupMediaUrl(this, item.unique);
@@ -113,13 +143,36 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 				?disabled=${this.disabled}
 				@selected=${this.#onSelected}
 				@deselected=${this.#onDeselected}>
-				<umb-imaging-thumbnail
-					.unique=${item.unique}
-					alt=${ifDefined(item.name)}
-					icon=${ifDefined(item.icon ?? undefined)}></umb-imaging-thumbnail>
-				${this.#renderPreviewButton()}
+				${this.#renderThumbnail(item)} ${this.#renderPreviewButton()}
 				<slot name="actions" slot="actions"></slot>
 			</uui-card-media>
+		`;
+	}
+
+	#renderThumbnail(item: UmbMediaCollectionItemModel) {
+		const thumbnail = html`<umb-imaging-thumbnail
+			.unique=${item.unique}
+			alt=${ifDefined(item.name)}
+			icon=${ifDefined(item.icon ?? undefined)}></umb-imaging-thumbnail>`;
+
+		if (this._preview?.kind !== 'video' || !this._inView || this._videoFrameFailed) return thumbnail;
+
+		// Umbraco can't make thumbnails for video, so show a frame from the file itself. The usual icon stays
+		// underneath until the frame has loaded, and remains if the browser can't decode the video.
+		return html`
+			<div id="video-thumbnail" class=${this._videoFrameReady ? 'ready' : ''}>
+				${thumbnail}
+				<video
+					src=${this._preview.url + '#t=0.1'}
+					preload="metadata"
+					muted
+					playsinline
+					disablepictureinpicture
+					tabindex="-1"
+					aria-hidden="true"
+					@loadeddata=${() => (this._videoFrameReady = true)}
+					@error=${() => (this._videoFrameFailed = true)}></video>
+			</div>
 		`;
 	}
 
@@ -150,6 +203,34 @@ export class SaMediaPreviewCardElement extends UmbLitElement implements UmbEntit
 			slot[name='actions'] {
 				--uui-button-background-color: var(--uui-color-surface);
 				--uui-button-background-color-hover: var(--uui-color-surface);
+			}
+
+			/* The card's media slot shrinks to its content's width, so pin the frame to the whole card instead. */
+			#video-thumbnail {
+				position: absolute;
+				inset: 0;
+				border-radius: var(--uui-border-radius);
+				overflow: hidden;
+			}
+
+			#video-thumbnail umb-imaging-thumbnail {
+				width: 100%;
+				height: 100%;
+			}
+
+			#video-thumbnail video {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				background: #000;
+				opacity: 0;
+				transition: opacity 200ms;
+			}
+
+			#video-thumbnail.ready video {
+				opacity: 1;
 			}
 
 			#preview-bar {
