@@ -20,15 +20,9 @@ export const manifests: Array<UmbExtensionManifest> = [
 		forEntityTypes: [UMB_MEDIA_ENTITY_TYPE],
 		meta: {
 			icon: 'icon-eye',
-			label: '#saMediaPreview_preview',
+			// Umbraco's own "Preview" term, already translated into the backoffice languages it ships.
+			label: '#general_preview',
 		},
 		conditions: [{ alias: SA_MEDIA_PREVIEW_CONDITION_ALIAS }],
-	},
-	{
-		type: 'localization',
-		alias: 'SA.MediaPreview.Localization.En',
-		name: 'SA Media Preview English',
-		meta: { culture: 'en' },
-		js: () => import('./lang/en.js'),
 	},
 ];

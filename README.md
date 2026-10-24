@@ -22,9 +22,10 @@ No configuration needed. Rebuild and run your site, then open the Media section.
 
 ## What changes
 
-- **Files** in the media library show the eye as their one-click button. The Create (+) action moves into the "..." menu for files.
+- **Files** in the media library show the eye as their one-click button, in both the grid and list layouts. The Create (+) action moves into the "..." menu for files.
 - **Folders** keep Create (+) as their one-click button.
 - **The media tree** on the left is unchanged.
+- **Languages:** the button uses Umbraco's own "Preview" wording, so it appears in each editor's backoffice language (for example "Vorschau" in German).
 
 The fly-out is Umbraco's own media editor, the same one that opens when you click a picked item in a Media Picker, so you can also make and save changes there. Umbraco's cards aren't replaced or modified.
 
