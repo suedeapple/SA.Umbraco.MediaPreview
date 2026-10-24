@@ -18,7 +18,7 @@
     <Authors>Suede Apple</Authors>
     <PackageTags>umbraco umbraco-marketplace umbraco-cms media video audio player preview</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/suedeapple/sa.umbraco.mediaplay</RepositoryUrl>
+    <RepositoryUrl>https://github.com/suedeapple/SA.Umbraco.MediaPreview</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
