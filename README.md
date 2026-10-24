@@ -1,8 +1,8 @@
 # SA.Umbraco.MediaPlay
 
-Adds a **Preview** button to media cards in the Umbraco media library. It appears when you hover over a card (or tab to it), next to Umbraco's own card actions, and opens the media item's standard editor as a fly-out from the right. You can view the image or play the video or audio with Umbraco's built-in players without leaving the media section, then close the fly-out to carry on where you were.
+Adds a **Preview** action to media items in the Umbraco media library. When you hover over a file's card, it's the one-click eye button next to the "..." menu, and it opens the media item's standard editor as a fly-out from the right. You can view the image or play the video or audio with Umbraco's built-in players without leaving the media section, then close the fly-out to carry on where you were.
 
-It uses only what Umbraco already provides: the fly-out is the same media editor the Media Picker opens, and the cards are otherwise unchanged. Folders don't get the button.
+It uses only what Umbraco already provides: the fly-out is the same media editor the Media Picker opens, and Umbraco's cards are not replaced or modified.
 
 Requires Umbraco 17.5 or later.
 
@@ -14,11 +14,15 @@ dotnet add package SA.Umbraco.MediaPlay
 
 No configuration needed.
 
-## Where the button appears
+## How it works
 
-The button is added to the media library's grid view, using Umbraco's `entityCollectionItemCard` extension point (added in Umbraco 17.3). This package registers a media card with a higher weight than the core one, renders the same card, and adds the button. The fly-out is a modal route for Umbraco's `UMB_WORKSPACE_MODAL`, registered the same way the Media Picker does it.
+Preview is a standard Umbraco **entity action** for media. Media cards show their highest weighted action as a one-click button beside the "..." menu; Preview has a higher weight than Create, so on files it takes that spot and Create moves into the "..." menu.
 
-Umbraco doesn't offer an extension point for the cards in the media picker dialog or the media picker property editor, so those are unchanged.
+A condition limits Preview to items shown in the media library's grid or list (it links to the fly-out route Umbraco's collection already registers for its items) and excludes folders, so:
+
+- **Files** in the media library show the eye button.
+- **Folders** keep Create (+) as their one-click button.
+- **The media tree** is unchanged.
 
 ## Development
 
