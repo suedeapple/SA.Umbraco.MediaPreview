@@ -23,8 +23,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Version floor only: tested against Umbraco 17.5 and later. -->
-    <PackageReference Include="Umbraco.Cms.Core" Version="17.5.0" />
+    <!-- Version floor: media cards gained hover actions (where Preview appears) in Umbraco 17.3. -->
+    <PackageReference Include="Umbraco.Cms.Core" Version="17.3.0" />
   </ItemGroup>
 
   <ItemGroup>
