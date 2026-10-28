@@ -10,7 +10,7 @@ Hover over a file's card and click the eye next to the "..." menu. The media ite
 
 ## Requirements
 
-Umbraco 17.3 or later, and Umbraco 18. Earlier 17.x versions have no buttons on media cards, so there is nowhere for the eye to appear.
+Umbraco 17.3 or later, Umbraco 18 and Umbraco 19. Earlier 17.x versions have no buttons on media cards, so there is nowhere for the eye to appear.
 
 ## Install
 

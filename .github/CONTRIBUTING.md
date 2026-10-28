@@ -29,7 +29,7 @@ A condition (`condition/can-preview-media.condition.ts`) limits Preview to items
 
 ## Supported Umbraco versions
 
-The package supports Umbraco 17.3 up to 18 (`[17.3.0, 19.0.0)` in the `.csproj`), so NuGet won't install it on a newer major. When a new major is released, test against it and raise the upper bound.
+The package supports Umbraco 17.3 up to 19 (`[17.3.0, 20.0.0)` in the `.csproj`), so NuGet won't install it on a newer major. When a new major is released, test against it and raise the upper bound.
 
 ## Releasing
 
